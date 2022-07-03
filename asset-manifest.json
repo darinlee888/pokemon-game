@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/pokemon-game/static/css/main.48e78935.css",
-    "main.js": "/pokemon-game/static/js/main.c6c335a2.js",
+    "main.css": "/pokemon-game/static/css/main.53e97e6b.css",
+    "main.js": "/pokemon-game/static/js/main.b94078eb.js",
     "static/js/787.15a21e91.chunk.js": "/pokemon-game/static/js/787.15a21e91.chunk.js",
     "static/media/Lucario_SSBU.png": "/pokemon-game/static/media/Lucario_SSBU.849c3d2fcf4c1fb6557d.png",
     "static/media/Greninja_SSBU.png": "/pokemon-game/static/media/Greninja_SSBU.266132f8e68ba7337f8a.png",
@@ -16,12 +16,12 @@
     "static/media/random.png": "/pokemon-game/static/media/random.fe547544dfcf62ef7f9a.png",
     "static/media/icon.svg": "/pokemon-game/static/media/icon.2db7de44dd9ea6558c0113d7d9e3db9d.svg",
     "index.html": "/pokemon-game/index.html",
-    "main.48e78935.css.map": "/pokemon-game/static/css/main.48e78935.css.map",
-    "main.c6c335a2.js.map": "/pokemon-game/static/js/main.c6c335a2.js.map",
+    "main.53e97e6b.css.map": "/pokemon-game/static/css/main.53e97e6b.css.map",
+    "main.b94078eb.js.map": "/pokemon-game/static/js/main.b94078eb.js.map",
     "787.15a21e91.chunk.js.map": "/pokemon-game/static/js/787.15a21e91.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.48e78935.css",
-    "static/js/main.c6c335a2.js"
+    "static/css/main.53e97e6b.css",
+    "static/js/main.b94078eb.js"
   ]
 }
