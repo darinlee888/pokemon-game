@@ -10,7 +10,7 @@
     color: white;
 }
 
-#profiles {
+.profiles {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -24,4 +24,39 @@
     border: 10px solid white;
     cursor: pointer;
     margin: 10px;
+}
+
+#confirm {
+    text-align: center;
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+}
+
+.player {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.profile {
+    font-size: calc(10px + 2vmin);
+    background-color: #61dafb;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    color: white;
+    border: 10px solid white;
+    margin: 10px;
+}
+
+#start {
+  color: white;
+  font-size: calc(10px + 2vmin);
+  background-color: #61dafb;
+  border: none;
+  cursor: pointer;
+  margin: 10px;
 }

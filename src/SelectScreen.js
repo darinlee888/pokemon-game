@@ -16,21 +16,50 @@ const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth
 const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0)
 
 function calcSize(len) {
-    let num = Math.min(vw, vh);
-    if (len === 0) {
-        num /= 2;
+    let num = Math.min(vw, vh) / 2;
+    if (len === 1) {
+        num = Math.min(vw / 3, vh / 2);
     }
-    if (len === 1 || len === 3) {
-        num /= 3;
+    if (len === 2) {
+        num = Math.min(vw / 4, vh / 2);
     }
-    if (len === 2 || len === 4 || len === 5 || len === 8) {
-        num /= 4;
+    if (len === 3) {
+        num = Math.min(vw / 3, vh / 3);
     }
-    if (len === 6 || len === 7 || len === 10) {
-        num /= 5;
+    if (len === 4 || len === 5) {
+        num = Math.min(vw / 4, vh / 3);
+    }
+    if (len === 6 || len === 7) {
+        num = Math.min(vw / 5, vh / 3);
+    }
+    if (len === 8) {
+        num = Math.min(vw / 4, vh / 4);
     }
     if (len === 9) {
-        num /= 6;
+        num = Math.min(vw / 6, vh / 3);
+    }
+    if (len === 10) {
+        num = Math.min(vw / 5, vh / 4);
+    }
+    return Math.floor(num / 10) * 10;
+}
+
+function calcLength(len) {
+    let num = 0;
+    if (len === 1) {
+        num = Math.min(vw / 4, vh / 2);
+    }
+    if (len === 2) {
+        num = Math.min(vw / 4, vh / 3);
+    }
+    if (len === 3) {
+        num = Math.min(vw / 4, vh / 4);
+    }
+    if (len === 4) {
+        num = Math.min(vw / 6, vh / 3);
+    }
+    if (len === 5 || len === 6) {
+        num = Math.min(vw / 8, vh / 3);
     }
     return Math.floor(num / 10) * 10;
 }
@@ -48,15 +77,14 @@ let imageMap = {
     "Incineroar": Incineroar
 };
 
-let playerOnePokemon = [];
-let playerTwoPokemon = [];
-
 function SelectScreen(props) {
     const [pokemonArray, setPokemonArray] = useState(
         '["Pikachu", "Jigglypuff", "Pichu", "Mewtwo", "Squirtle", "Ivysaur", "Charizard", "Lucario", "Greninja", "Incineroar"]'
     );
 
     let arr = JSON.parse(pokemonArray);
+    let playerOnePokemon = props.playerOnePokemon;
+    let playerTwoPokemon = props.playerTwoPokemon;
 
     function removeFromSelect(pokemon) {
         if (arr.length !== 0) {
@@ -64,26 +92,55 @@ function SelectScreen(props) {
             if (pokemon !== 'Random') {
                 index = arr.indexOf(pokemon);
             }
-            console.log(index);
-            playerOnePokemon.push(arr[index]);
-            console.log(playerOnePokemon);
+            props.addPlayerOnePokemon(arr[index]);
             arr.splice(index, 1);
             setPokemonArray(JSON.stringify(arr));
 
             let index2 = Math.floor(Math.random() * arr.length);
-            console.log(index2);
-            playerTwoPokemon.push(arr[index2]);
-            console.log(playerTwoPokemon);
+            props.addPlayerTwoPokemon(arr[index2]);
             arr.splice(index2, 1);
             setPokemonArray(JSON.stringify(arr));
         }
     }
 
     let size = calcSize(arr.length);
+    let len = calcLength(playerOnePokemon.length);
 
+    console.log(playerOnePokemon.length, props.number);
+    if (playerOnePokemon.length === props.number) {
+        return (
+            <div id="confirm">
+                <div className="player">
+                    <code>{props.name}</code>
+                    <div className='profiles'>
+                        {playerOnePokemon.map(pokemon => (
+                            <div className='profile'>
+                                <img src={imageMap[pokemon]} alt={pokemon} style={{width: len, height: len}}/>
+                                <div>{pokemon}</div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+                <div className="player">
+                    <button id='start' onClick={props.changeScreen}>Start!</button>
+                </div>
+                <div className="player">
+                    <code>Player Two</code>
+                    <div className='profiles'>
+                        {playerTwoPokemon.map(pokemon => (
+                            <div className='profile'>
+                                <img src={imageMap[pokemon]} alt={pokemon} style={{width: len, height: len}}/>
+                                <div>{pokemon}</div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
+        );
+    }
     return (
         <div id="select-screen">
-            <code>Select Your Pokemon</code>
+            <code>Select Your Pokemon ({props.number - playerOnePokemon.length} left)</code>
             <div id='profiles'>
                 {arr.map(pokemon => (
                     <button className='profile-button' onClick={() => removeFromSelect(pokemon)}>

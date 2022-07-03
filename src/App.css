@@ -33,6 +33,19 @@
   text-decoration: underline;
 }
 
+.inputBox {
+  font-size: calc(10px + 2vmin);
+}
+
+#continue {
+  color: white;
+  font-size: calc(10px + 2vmin);
+  background-color: #61dafb;
+  border: none;
+  cursor: pointer;
+  margin: 10px;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
