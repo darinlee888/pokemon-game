@@ -2,6 +2,7 @@ import logo from './icon.svg';
 import './App.css';
 import { useState } from 'react';
 import SelectScreen from './SelectScreen';
+import BattleScreen from './BattleScreen';
 
 function App() {
   const [screen, setScreen] = useState("home");
@@ -32,7 +33,7 @@ function App() {
   const addPlayerTwoPokemon = (newPokemon) => setPlayerTwoPokemon(playerTwoPokemon => [...playerTwoPokemon, newPokemon]);
 
   function startBattle() {
-    setScreen("result");
+    setScreen("battle");
   }
 
   if (screen === "name") {
@@ -87,6 +88,11 @@ function App() {
       playerOnePokemon={playerOnePokemon} addPlayerOnePokemon={addPlayerOnePokemon}
       playerTwoPokemon={playerTwoPokemon} addPlayerTwoPokemon={addPlayerTwoPokemon}/>
     );
+  }
+  if (screen === "battle") {
+    return (
+      <BattleScreen playerOnePokemon={playerOnePokemon} playerTwoPokemon={playerTwoPokemon}/>
+    )
   }
   if (screen === "result") {
     return (

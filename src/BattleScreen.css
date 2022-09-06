@@ -1,0 +1,32 @@
+#battle-screen {
+  display: flex;
+}
+
+#battlefield {
+  background-color: #282c34;
+  width: 50vw;
+  height: 100vh;
+}
+
+#message-box {
+  width: 50vw;
+  height: 25vh;
+}
+
+#option-select {
+  width: 50vw;
+  height: 75vh;
+  background-color: #61dafb;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.option {
+  width: 20vw;
+  height: 50vh;
+  font-size: calc(10px + 2vmin);
+  cursor: pointer;
+  color: #282c34;
+  background-color: white;
+}
